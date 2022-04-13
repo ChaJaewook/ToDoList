@@ -1,0 +1,107 @@
+﻿<Window x:Class="ToDoList.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        WindowStyle="None"
+        xmlns:local="clr-namespace:ToDoList.ViewModel">
+    <Window.DataContext>
+        <local:MainViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+            <DockPanel Grid.Column="0" >
+                <Image Width="30" />
+                <Label Content="TodoList"/>
+            </DockPanel>
+            <Button Grid.Column="1" Click="MinButton_Click"/>
+            <Button Grid.Column="2" Click="SizeButton_Click"/>
+            <Button Grid.Column="3" Click="CloseButton_Click"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <RadioButton Content="오늘 할 일!" Grid.Column="0"  Click="NavigateTodayList" IsChecked="True">
+                    <RadioButton.Template>
+                        <ControlTemplate>
+                            <Border >
+                                
+                                <ContentPresenter Content="{TemplateBinding ContentControl.Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="RadioButton.IsChecked" Value="True">
+                                    <Setter Property="BorderBrush" Value="Blue"/>
+                                    <Setter Property="FontWeight" Value="Bold"/>
+                                </Trigger>
+
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </RadioButton.Template>
+                </RadioButton>
+
+                <RadioButton Background="Transparent" Grid.Column="1"  Click="NavigateWeekendList">
+                    <RadioButton.Template>
+                        <ControlTemplate>
+                            <Border>
+                                <ContentPresenter Content="이번 주 할 일!" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="RadioButton.IsChecked" Value="True">
+                                    <Setter Property="Background" Value="Red"/>
+                                    <Setter Property="FontWeight" Value="Bold"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </RadioButton.Template>
+                </RadioButton>
+                <RadioButton HorizontalAlignment="Center" Grid.Column="2" Content="달력보기!" Click="NavigateCalendarList">
+                    <RadioButton.Template>
+                        <ControlTemplate>
+                            <Border>
+                                <ContentPresenter Content="달력보기!" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="RadioButton.IsChecked" Value="True">
+                                    <Setter Property="BorderBrush" Value="Blue"/>
+                                    <Setter Property="FontWeight" Value="Bold"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </RadioButton.Template>
+                </RadioButton>
+            </Grid>
+            <Frame Grid.Row="1" Name="mainFrame" NavigationUIVisibility="Hidden"/>
+            <!--<ItemsControl ItemsSource="{Binding ToDayListItem}"/>-->
+            
+
+
+        </Grid>
+        
+        
+
+    </Grid>
+</Window>
