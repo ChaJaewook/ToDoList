@@ -21,4 +21,5 @@ C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\CalendarList.baml
 C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\SubForm\CheckListControl.baml
 C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\TodayList.baml
 C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\WeekendList.baml
-C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\ToDoList.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\SubForm\InfoWindow.g.cs
+C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\SubForm\InfoWindow.baml

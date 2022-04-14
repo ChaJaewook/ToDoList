@@ -8,7 +8,6 @@ using ToDoList.Util;
 using ToDoList.ViewModel;
 using ToDoList.View.SubForm;
 using System.Collections.ObjectModel;
-using ToDoList.ViewModel;
 using System.Windows.Controls;
 
 namespace ToDoList.ViewModel
@@ -57,7 +56,7 @@ namespace ToDoList.ViewModel
                 
                 //CheckListViewModel checkListViewModel = new CheckListViewModel(row["Title"].ToString(), row["DoDate"].ToString(), row["Check"].ToString());
                 CheckListControl chkListControl = new CheckListControl();
-                chkListControl.DataContext = new CheckListViewModel(row["Title"].ToString(), row["DoDate"].ToString(), row["Check"].ToString());
+                chkListControl.DataContext = new CheckListViewModel(row["Title"].ToString(), row["DoDate"].ToString(), row["Check"].ToString(),row["ID"].ToString());
                 //chkListControl.DataContext = checkListViewModel;
 
                 item.Items.Add(chkListControl);

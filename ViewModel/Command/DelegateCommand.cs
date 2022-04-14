@@ -29,12 +29,16 @@ namespace ToDoList.ViewModel.Command
 
         public bool CanExecute(object parameter)
         {
-            throw new NotImplementedException();
+            if (this.canExecute == null)
+            {
+                return true;
+            }
+            return this.canExecute();
         }
 
         public void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            this.execute();
         }
 
         public void RaiseCanExecuteChanged()

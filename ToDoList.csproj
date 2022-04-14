@@ -65,6 +65,7 @@
     <Compile Include="Util\UUID.cs" />
     <Compile Include="ViewModel\CheckListViewModel.cs" />
     <Compile Include="ViewModel\Command\DelegateCommand.cs" />
+    <Compile Include="ViewModel\InfoViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\NotifyChanged\NotifyChanged.cs" />
     <Compile Include="ViewModel\TodayListViewModel.cs" />
@@ -76,6 +77,9 @@
     </Compile>
     <Compile Include="View\SubForm\CheckListControl.xaml.cs">
       <DependentUpon>CheckListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SubForm\InfoWindow.xaml.cs">
+      <DependentUpon>InfoWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TodayList.xaml.cs">
       <DependentUpon>TodayList.xaml</DependentUpon>
@@ -123,6 +127,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SubForm\CheckListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SubForm\InfoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

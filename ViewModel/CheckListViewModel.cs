@@ -46,25 +46,32 @@ namespace ToDoList.ViewModel
             }
         }
 
+        private string uuid;
+        public string UUID
+        {
+            get { return uuid; }
+            set
+            {
+                uuid = value;
+                OnPropertyChanged("UUID");
+            }
+        }
+
         #endregion
         public CheckListViewModel()
         {
 
         }
-        public CheckListViewModel(string p_title,string p_doDate, string p_check)
+        public CheckListViewModel(string p_title,string p_doDate, string p_check, string p_uuid)
         {
             CheckListTitle = p_title;
+            UUID = p_uuid;
             
         }
 
         public void SubmitCommandExecute()
         {
-
-        }
-
-        public bool CanExecuteMethod(object arg)
-        {
-            return true;
+            Console.WriteLine("check");
         }
     }
 }
