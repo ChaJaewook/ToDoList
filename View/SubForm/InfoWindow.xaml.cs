@@ -23,5 +23,10 @@ namespace ToDoList.View.SubForm
         {
             InitializeComponent();
         }
+
+        private void CloseButton(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -50,22 +50,22 @@
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
 
-                <TextBox Grid.Row="0"/>
-                <RichTextBox Grid.Row="1"/>
-                <DatePicker Grid.Row="2"/>
-                <ComboBox Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <ComboBoxItem Tag="1"/>
-                    <ComboBoxItem Tag="2"/>
-                    <ComboBoxItem Tag="3" IsSelected="True"/>
-                    <ComboBoxItem Tag="4"/>
-                    <ComboBoxItem Tag="5"/>
+                <TextBox Grid.Row="0" Text="{Binding Title}"/>
+                <TextBox Grid.Row="1" Text="{Binding Content}"/>
+                <DatePicker Grid.Row="2" SelectedDate="{Binding DoDate}"/>
+                <ComboBox Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" SelectedValue="{Binding Level}">
+                    <ComboBoxItem Content="1"/>
+                    <ComboBoxItem Content="2"/>
+                    <ComboBoxItem Content="3"/>
+                    <ComboBoxItem Content="4"/>
+                    <ComboBoxItem Content="5"/>
                 </ComboBox>
             </Grid>
             
         </Grid>
-        <StackPanel Grid.Row="3" Orientation="Horizontal">
+        <StackPanel HorizontalAlignment="Center" Grid.Row="3" Orientation="Horizontal">
             <Button Content="{Binding CheckContent}" Command="{Binding CheckCommand}"/>
-            <Button Content="취소"/>
+            <Button Margin="10,0,0,0" Content="취소" Click="CloseButton" />
         </StackPanel>
     </Grid>
 </Window>

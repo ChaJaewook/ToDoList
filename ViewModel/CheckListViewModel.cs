@@ -7,7 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using ToDoList.Util;
-using ToDoList.ViewModel;
+using ToDoList.View;
+using ToDoList.View.SubForm;
 using ToDoList.ViewModel.Command;
 
 namespace ToDoList.ViewModel
@@ -28,6 +29,24 @@ namespace ToDoList.ViewModel
             get
             {
                 return (this.submitCommand) ?? (this.submitCommand = new DelegateCommand(SubmitCommandExecute));
+            }
+        }
+
+        private ICommand delCheckListCommand;
+        public ICommand DelCheckListCommand
+        {
+            get
+            {
+                return (this.delCheckListCommand) ?? (this.delCheckListCommand = new DelegateCommand(DelCheckListExecute));
+            }
+        }
+
+        private ICommand modCheckListCommand;
+        public ICommand ModCheckListCommand
+        {
+            get
+            {
+                return (this.modCheckListCommand) ?? (this.modCheckListCommand = new DelegateCommand(ModCheckListExecute));
             }
         }
         #endregion
@@ -72,6 +91,24 @@ namespace ToDoList.ViewModel
         public void SubmitCommandExecute()
         {
             Console.WriteLine("check");
+        }
+
+        public void DelCheckListExecute()
+        {
+            InfoWindow infoWindow =new InfoWindow() ;
+            InfoViewModel infoViewModel=    new InfoViewModel("Del", UUID);
+
+            infoWindow.DataContext = infoViewModel;
+            infoWindow.ShowDialog();
+        }
+
+        public void ModCheckListExecute()
+        {
+            InfoWindow infoWindow = new InfoWindow();
+            InfoViewModel infoViewModel = new InfoViewModel("Mod", UUID);
+
+            infoWindow.DataContext = infoViewModel;
+            infoWindow.ShowDialog();
         }
     }
 }
