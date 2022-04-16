@@ -113,6 +113,7 @@ namespace ToDoList.ViewModel
                     ModInfo(p_uuid);
                     break;
                 case "Insert":
+                    InsertInfo();
                     break;
                 default:
                     MessageBox.Show("Div Error");
@@ -141,8 +142,17 @@ namespace ToDoList.ViewModel
 
         }
 
+        private void InsertInfo()
+        {
+            CheckContent = "추가";
+            PageTitle = "추가페이지";
+
+            Level = "3";
+        }
+
         private void CheckCommandExecute()
         {
+
             /*switch(CheckContent)
             {
                 case "수정":
