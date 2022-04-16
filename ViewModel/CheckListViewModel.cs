@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using ToDoList.Util;
 using ToDoList.View;
@@ -95,11 +96,23 @@ namespace ToDoList.ViewModel
 
         public void DelCheckListExecute()
         {
-            InfoWindow infoWindow =new InfoWindow() ;
+            /*InfoWindow infoWindow =new InfoWindow() ;
             InfoViewModel infoViewModel=    new InfoViewModel("Del", UUID);
 
             infoWindow.DataContext = infoViewModel;
-            infoWindow.ShowDialog();
+            infoWindow.ShowDialog();*/
+
+            if(MessageBox.Show("등록하기겠습니까?", "Alert", MessageBoxButton.YesNo, MessageBoxImage.Question)==MessageBoxResult.Yes)
+            {
+                manager.OpenDB();
+                _query = String.Format("delete *from ListTable where ID='{0}'", UUID);
+                if (manager.Query(_query))
+                    MessageBox.Show("삭제완료");
+
+                manager.CloseDB();
+              
+            }
+
         }
 
         public void ModCheckListExecute()

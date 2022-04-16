@@ -5,6 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
+using ToDoList.Util;
+using ToDoList.ViewModel.Command;
 using ToDoList.Util;
 
 namespace ToDoList.ViewModel
@@ -14,8 +17,21 @@ namespace ToDoList.ViewModel
         private string _query = "";
         AcsDBManager manager = new AcsDBManager();
         DataSet result = null;
+        UUID getUUID = new UUID();
+
 
         #region Binding 변수정리
+        private string pageTitle;
+        public string PageTitle
+        {
+            get { return pageTitle; }
+            set
+            {
+                pageTitle = value;
+                OnPropertyChanged("PageTitle");
+            }
+        }
+
         private string checkContent;
         public string CheckContent
         {
@@ -72,6 +88,17 @@ namespace ToDoList.ViewModel
 
         #endregion
 
+        #region Command 변수정리
+        private ICommand checkCommand;
+        public ICommand CheckCommand
+        {
+            get
+            {
+                return (this.checkCommand) ?? (this.checkCommand = new DelegateCommand(CheckCommandExecute));
+            }
+        }
+        #endregion
+
         public InfoViewModel()
         {
 
@@ -85,7 +112,7 @@ namespace ToDoList.ViewModel
                 case "Mod":
                     ModInfo(p_uuid);
                     break;
-                case "Del":
+                case "Insert":
                     break;
                 default:
                     MessageBox.Show("Div Error");
@@ -96,6 +123,7 @@ namespace ToDoList.ViewModel
         private void ModInfo(string p_uuid)
         {
             CheckContent = "수정";
+            PageTitle = "수정페이지";
 
             string uuid = p_uuid;
             _query = string.Format("select * from ListTable where ID='{0}'", uuid);
@@ -110,6 +138,22 @@ namespace ToDoList.ViewModel
             DoDate = Convert.ToDateTime(row["DoDate"].ToString());
             Level = row["Level"].ToString();
            
+
+        }
+
+        private void CheckCommandExecute()
+        {
+            /*switch(CheckContent)
+            {
+                case "수정":
+                    _query="update "
+                    break;
+                case "추가":
+                    _query = string.Format("insert into ListTable (ID,Title,Content,DoDate,RegDate,Level,Check) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')"
+                        getUUID.GetUUID(),Title,Content,DoDate,DateTime.Now,Level,"F");
+                    break;
+
+            }*/
         }
 
     }
