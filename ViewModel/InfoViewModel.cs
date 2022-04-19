@@ -9,6 +9,7 @@ using System.Windows.Input;
 using ToDoList.Util;
 using ToDoList.ViewModel.Command;
 using ToDoList.Util;
+using System.Windows.Controls;
 
 namespace ToDoList.ViewModel
 {
@@ -75,8 +76,8 @@ namespace ToDoList.ViewModel
             }
         }
 
-        private string level;
-        public string Level
+        private int level;
+        public int Level
         {
             get { return level; }
             set
@@ -113,6 +114,7 @@ namespace ToDoList.ViewModel
                     ModInfo(p_uuid);
                     break;
                 case "Insert":
+                    DoDate= DateTime.Now;
                     InsertInfo();
                     break;
                 default:
@@ -127,17 +129,17 @@ namespace ToDoList.ViewModel
             PageTitle = "수정페이지";
 
             string uuid = p_uuid;
-            _query = string.Format("select * from ListTable where ID='{0}'", uuid);
+            _query = string.Format("select * from ListTable where ID_='{0}'", uuid);
 
             result = manager.Select(_query);
             DataTable dataTable = result.Tables[0];
 
             DataRow row = dataTable.Rows[0];
 
-            Title = row["Title"].ToString();
-            Content = row["Content"].ToString();
-            DoDate = Convert.ToDateTime(row["DoDate"].ToString());
-            Level = row["Level"].ToString();
+            Title = row["Title_"].ToString();
+            Content = row["Content_"].ToString();
+            DoDate = Convert.ToDateTime(row["DoDate_"].ToString());
+            Level = Int32.Parse(row["Level_"].ToString())-1;
            
 
         }
@@ -147,23 +149,29 @@ namespace ToDoList.ViewModel
             CheckContent = "추가";
             PageTitle = "추가페이지";
 
-            Level = "3";
+            Level = 2;
         }
 
         private void CheckCommandExecute()
         {
 
-            /*switch(CheckContent)
+            switch(CheckContent)
             {
                 case "수정":
-                    _query="update "
+                    _query = "update ";
                     break;
                 case "추가":
-                    _query = string.Format("insert into ListTable (ID,Title,Content,DoDate,RegDate,Level,Check) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')"
-                        getUUID.GetUUID(),Title,Content,DoDate,DateTime.Now,Level,"F");
+                    _query = string.Format("insert into ListTable (ID_,Title_,Content_,DoDate_,RegDate_,Level_,Check_) Values('{0}','{1}','{2}','{3}','{4}',{5},'{6}')"
+                        ,getUUID.GetUUID(),Title,Content,DoDate.ToString("yyyy-MM-dd"),DateTime.Now.ToString("yyyy-MM-dd"), Level,"F");
+                    /*_query = string.Format("insert into ListTable (ID_,Title_,Content_,Level_,Check_) Values('{0}','{1}','{2}',{3},'{4}')"
+                        , getUUID.GetUUID(), Title, Content, Int32.Parse(Level), "F");*/
+                    manager.Query(_query);
                     break;
+                    
 
-            }*/
+            }
+
+            manager.CloseDB();
         }
 
     }

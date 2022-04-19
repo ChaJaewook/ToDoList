@@ -56,7 +56,7 @@ namespace ToDoList.ViewModel
                 
                 //CheckListViewModel checkListViewModel = new CheckListViewModel(row["Title"].ToString(), row["DoDate"].ToString(), row["Check"].ToString());
                 CheckListControl chkListControl = new CheckListControl();
-                chkListControl.DataContext = new CheckListViewModel(row["Title"].ToString(), row["DoDate"].ToString(), row["Check"].ToString(),row["ID"].ToString());
+                chkListControl.DataContext = new CheckListViewModel(row["Title_"].ToString(), row["DoDate_"].ToString(), row["Check_"].ToString(),row["ID_"].ToString());
                 //chkListControl.DataContext = checkListViewModel;
 
                 item.Items.Add(chkListControl);

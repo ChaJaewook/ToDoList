@@ -91,7 +91,7 @@ namespace ToDoList.ViewModel
 
         public void SubmitCommandExecute()
         {
-            Console.WriteLine("check");
+            _query = String.Format("update ListTable set check='T' where ID={0}", UUID);
         }
 
         public void DelCheckListExecute()
