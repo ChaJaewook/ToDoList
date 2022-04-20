@@ -121,6 +121,8 @@ namespace ToDoList.ViewModel
             InfoViewModel infoViewModel = new InfoViewModel("Mod", UUID);
 
             infoWindow.DataContext = infoViewModel;
+            if (infoViewModel.CloseAction == null)
+                infoViewModel.CloseAction = new Action(infoWindow.Close);
             infoWindow.ShowDialog();
         }
     }

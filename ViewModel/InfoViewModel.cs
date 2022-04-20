@@ -20,6 +20,9 @@ namespace ToDoList.ViewModel
         DataSet result = null;
         UUID getUUID = new UUID();
 
+        private string uuid = string.Empty;
+
+        public Action CloseAction { get; set; }
 
         #region Binding 변수정리
         private string pageTitle;
@@ -96,6 +99,7 @@ namespace ToDoList.ViewModel
             get
             {
                 return (this.checkCommand) ?? (this.checkCommand = new DelegateCommand(CheckCommandExecute));
+                //return (this.checkCommand) ?? (this.checkCommand = new DelegateCommand<Object>(CheckCommandExecute));
             }
         }
         #endregion
@@ -128,7 +132,7 @@ namespace ToDoList.ViewModel
             CheckContent = "수정";
             PageTitle = "수정페이지";
 
-            string uuid = p_uuid;
+            uuid = p_uuid;
             _query = string.Format("select * from ListTable where ID_='{0}'", uuid);
 
             result = manager.Select(_query);
@@ -158,7 +162,10 @@ namespace ToDoList.ViewModel
             switch(CheckContent)
             {
                 case "수정":
-                    _query = "update ";
+                    //수정쿼리 추가.
+                    _query = string.Format("update ListTable set Title_='{0}', Content_='{1}', DoDate_='{2}', ModDate_='{3}', Level_={4} where ID_='{5}'",
+                        Title, Content, DoDate.ToString("yyyy-MM-dd"), DateTime.Now.ToString("yyyy-MM-dd"),Level,uuid);
+                    manager.Query(_query);
                     break;
                 case "추가":
                     _query = string.Format("insert into ListTable (ID_,Title_,Content_,DoDate_,RegDate_,Level_,Check_) Values('{0}','{1}','{2}','{3}','{4}',{5},'{6}')"
@@ -170,8 +177,10 @@ namespace ToDoList.ViewModel
                     
 
             }
-
+            
             manager.CloseDB();
+            CloseAction();
+            
         }
 
     }

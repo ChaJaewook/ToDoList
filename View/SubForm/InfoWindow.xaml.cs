@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ToDoList.ViewModel;
 
 namespace ToDoList.View.SubForm
 {
@@ -22,6 +23,12 @@ namespace ToDoList.View.SubForm
         public InfoWindow()
         {
             InitializeComponent();
+            InfoViewModel infoViewModel = new InfoViewModel();
+            this.DataContext = infoViewModel;
+            if(infoViewModel.CloseAction==null)
+            {
+                infoViewModel.CloseAction = new Action(this.Close);
+            }
         }
 
         private void CloseButton(object sender, RoutedEventArgs e)
