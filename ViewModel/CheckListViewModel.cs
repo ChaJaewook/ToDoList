@@ -91,7 +91,13 @@ namespace ToDoList.ViewModel
 
         public void SubmitCommandExecute()
         {
-            _query = String.Format("update ListTable set check='T' where ID={0}", UUID);
+            manager.OpenDB();
+            _query = String.Format("update ListTable set Check_='T' where ID_='{0}'", UUID);
+            if (manager.Query(_query))
+                MessageBox.Show("수정완료");
+
+            manager.CloseDB();
+
         }
 
         public void DelCheckListExecute()
@@ -102,16 +108,15 @@ namespace ToDoList.ViewModel
             infoWindow.DataContext = infoViewModel;
             infoWindow.ShowDialog();*/
 
-            if(MessageBox.Show("등록하기겠습니까?", "Alert", MessageBoxButton.YesNo, MessageBoxImage.Question)==MessageBoxResult.Yes)
+            if(MessageBox.Show("삭제하겠습니까?", "Alert", MessageBoxButton.YesNo, MessageBoxImage.Question)==MessageBoxResult.Yes)
             {
                 manager.OpenDB();
                 _query = String.Format("delete *from ListTable where ID='{0}'", UUID);
                 if (manager.Query(_query))
-                    MessageBox.Show("삭제완료");
-
-                manager.CloseDB();
+                    MessageBox.Show("삭제완료");       
               
             }
+            manager.CloseDB();
 
         }
 

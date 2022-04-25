@@ -30,6 +30,8 @@ namespace ToDoList.ViewModel
             InfoWindow infoWindow = new InfoWindow();
             InfoViewModel infoViewModel = new InfoViewModel("Insert","");
             infoWindow.DataContext = infoViewModel;
+            if (infoViewModel.CloseAction == null)
+                infoViewModel.CloseAction = new Action(infoWindow.Close);
 
             infoWindow.ShowDialog();
 

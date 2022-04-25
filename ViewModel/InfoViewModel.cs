@@ -163,12 +163,12 @@ namespace ToDoList.ViewModel
             {
                 case "수정":
                     //수정쿼리 추가.
-                    _query = string.Format("update ListTable set Title_='{0}', Content_='{1}', DoDate_='{2}', ModDate_='{3}', Level_={4} where ID_='{5}'",
+                    _query = string.Format("update ListTable set Title_='{0}', Content_='{1}', DoDate_={2}, ModDate_={3}, Level_={4} where ID_='{5}'",
                         Title, Content, DoDate.ToString("yyyy-MM-dd"), DateTime.Now.ToString("yyyy-MM-dd"),Level,uuid);
                     manager.Query(_query);
                     break;
                 case "추가":
-                    _query = string.Format("insert into ListTable (ID_,Title_,Content_,DoDate_,RegDate_,Level_,Check_) Values('{0}','{1}','{2}','{3}','{4}',{5},'{6}')"
+                    _query = string.Format("insert into ListTable (ID_,Title_,Content_,DoDate_,RegDate_,Level_,Check_) Values('{0}','{1}','{2}',{3},{4},{5},'{6}')"
                         ,getUUID.GetUUID(),Title,Content,DoDate.ToString("yyyy-MM-dd"),DateTime.Now.ToString("yyyy-MM-dd"), Level,"F");
                     /*_query = string.Format("insert into ListTable (ID_,Title_,Content_,Level_,Check_) Values('{0}','{1}','{2}',{3},'{4}')"
                         , getUUID.GetUUID(), Title, Content, Int32.Parse(Level), "F");*/

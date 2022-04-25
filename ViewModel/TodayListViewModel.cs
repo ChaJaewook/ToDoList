@@ -47,19 +47,22 @@ namespace ToDoList.ViewModel
 
             manager.OpenDB();
 
-            _query = "select * from ListTable";
+            _query = string.Format("select * from ListTable where DoDate_={0}",DateTime.Now.ToString("yyyy-MM-dd"));
 
             result=manager.Select(_query);
-            DataTable dataTable = result.Tables[0];
-            foreach(DataRow row in dataTable.Rows)
+            if(result.Tables.Count>0)
             {
-                
-                //CheckListViewModel checkListViewModel = new CheckListViewModel(row["Title"].ToString(), row["DoDate"].ToString(), row["Check"].ToString());
-                CheckListControl chkListControl = new CheckListControl();
-                chkListControl.DataContext = new CheckListViewModel(row["Title_"].ToString(), row["DoDate_"].ToString(), row["Check_"].ToString(),row["ID_"].ToString());
-                //chkListControl.DataContext = checkListViewModel;
+                DataTable dataTable = result.Tables[0];
+                foreach (DataRow row in dataTable.Rows)
+                {
 
-                item.Items.Add(chkListControl);
+                    //CheckListViewModel checkListViewModel = new CheckListViewModel(row["Title"].ToString(), row["DoDate"].ToString(), row["Check"].ToString());
+                    CheckListControl chkListControl = new CheckListControl();
+                    chkListControl.DataContext = new CheckListViewModel(row["Title_"].ToString(), row["DoDate_"].ToString(), row["Check_"].ToString(), row["ID_"].ToString());
+                    //chkListControl.DataContext = checkListViewModel;
+
+                    item.Items.Add(chkListControl);
+                }
             }
 
             CheckList.Clear();
