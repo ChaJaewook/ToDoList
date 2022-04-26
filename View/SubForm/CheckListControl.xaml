@@ -18,7 +18,7 @@
             <ColumnDefinition Width="0"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Margin="20,0,0,0" VerticalAlignment="Center" Grid.Column="0" Text="{Binding CheckListTitle}"/>
+        <TextBlock Margin="20,0,0,0" VerticalAlignment="Center" Grid.Column="0" TextDecorations="{Binding CheckListDeco}" Foreground="{Binding CheckListForeground}" Text="{Binding CheckListTitle}"/>
 
 
         <Button Grid.Column="1" Content="완료" Command="{Binding SubmitCommand}"/>

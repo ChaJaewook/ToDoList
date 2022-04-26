@@ -65,5 +65,10 @@ namespace ToDoList.View
         {
             this.mainFrame.Navigate(new Uri("View/CalendarList.xaml", UriKind.RelativeOrAbsolute));
         }
+
+        private void TitleBar_Click(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 using ToDoList.Util;
 using ToDoList.View;
 using ToDoList.View.SubForm;
@@ -52,6 +53,36 @@ namespace ToDoList.ViewModel
         }
         #endregion
         #region Binding 변수정의
+        private System.Windows.Media.Brush checkListForeground;
+        public System.Windows.Media.Brush CheckListForeground
+        {
+            get
+            {
+                return checkListForeground;
+            }
+            set
+            {
+                checkListForeground = value;
+                OnPropertyChanged("CheckListForeground");
+            }
+        }
+
+        private string checkListDeco;
+        public string CheckListDeco
+        {
+            get
+            {
+                return checkListDeco;
+            }
+            set
+            {
+                checkListDeco = value;
+                OnPropertyChanged("CheckListDeco");
+            }
+        }
+
+
+
         private string checkListTitle;
         public string CheckListTitle
         {
@@ -86,6 +117,20 @@ namespace ToDoList.ViewModel
         {
             CheckListTitle = p_title;
             UUID = p_uuid;
+
+            switch(p_check)
+            {
+                case "T":
+                    CheckListForeground = Brushes.Gray;
+                    CheckListDeco = "Strikethrough";
+                    break;
+                case "F":
+                    CheckListForeground = Brushes.Black;
+                    CheckListDeco = "None";
+                    break;
+                default:
+                    break;
+            }
             
         }
 

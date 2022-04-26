@@ -25,7 +25,7 @@
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
-            <DockPanel Grid.Column="0" >
+            <DockPanel Grid.Column="0" MouseLeftButtonDown="TitleBar_Click" >
                 <Image Width="30" />
                 <Label Content="TodoList"/>
             </DockPanel>

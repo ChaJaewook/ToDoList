@@ -62,6 +62,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Util\AcsDBManager.cs" />
+    <Compile Include="Util\Checker.cs" />
     <Compile Include="Util\UUID.cs" />
     <Compile Include="ViewModel\CheckListViewModel.cs" />
     <Compile Include="ViewModel\Command\DelegateCommand.cs" />
