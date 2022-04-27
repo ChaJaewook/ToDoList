@@ -70,6 +70,7 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\NotifyChanged\NotifyChanged.cs" />
     <Compile Include="ViewModel\TodayListViewModel.cs" />
+    <Compile Include="ViewModel\WeekListViewModel.cs" />
     <Compile Include="View\CalendarList.xaml.cs">
       <DependentUpon>CalendarList.xaml</DependentUpon>
     </Compile>
@@ -82,11 +83,14 @@
     <Compile Include="View\SubForm\InfoWindow.xaml.cs">
       <DependentUpon>InfoWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\SubForm\WeekListControl.xaml.cs">
+      <DependentUpon>WeekListControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TodayList.xaml.cs">
       <DependentUpon>TodayList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\WeekendList.xaml.cs">
-      <DependentUpon>WeekendList.xaml</DependentUpon>
+    <Compile Include="View\Weekend.xaml.cs">
+      <DependentUpon>Weekend.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -135,11 +139,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\SubForm\WeekListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\TodayList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\WeekendList.xaml">
+    <Page Include="View\Weekend.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
