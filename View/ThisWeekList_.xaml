@@ -1,12 +1,13 @@
-﻿<Page x:Class="ToDoList.View.ThisWeekList"
+﻿<Page x:Class="ToDoList.View.WeekendList"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"       
+      xmlns:local="clr-namespace:ToDoList.ViewModel"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      xmlns:local="clr-namespace:ToDoList.ViewModel"
-      Title="ThisWeekList">
+      Title="WeekendList"
+      Background="White">
     <Page.DataContext>
         <local:ThisWeekListViewModel/>
     </Page.DataContext>
@@ -20,18 +21,15 @@
         <Grid Grid.Row="0">
             <Label Content="이번주 할 일" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
-        <ScrollViewer Grid.Row="1">
-            <ItemsControl   HorizontalAlignment="Left" ItemsSource="{Binding ThisWeekList}" Margin="20,10,20,10">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal">
+        <ItemsControl Grid.Row="1" ItemsSource="{Binding ThisWeekList}" Margin="20,10,20,10">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal">
 
-                        </StackPanel>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
+                    </StackPanel>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
 
-            </ItemsControl>
-        </ScrollViewer>
-
+        </ItemsControl>
     </Grid>
 </Page>

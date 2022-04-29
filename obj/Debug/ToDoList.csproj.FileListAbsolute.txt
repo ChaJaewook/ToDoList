@@ -25,3 +25,5 @@ C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\SubForm\WeekListCont
 C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\SubForm\WeekListControl.baml
 C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\ThisWeekList.g.cs
 C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\ThisWeekList.baml
+C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\ThisWeekList_.g.cs
+C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\ThisWeekList_.baml

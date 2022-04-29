@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace ToDoList.View
 {
     /// <summary>
-    /// ThisWeekList.xaml에 대한 상호 작용 논리
+    /// WeekendList.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class ThisWeekList : Page
+    public partial class WeekendList : Page
     {
-        public ThisWeekList()
+        public WeekendList()
         {
             InitializeComponent();
         }

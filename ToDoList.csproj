@@ -87,11 +87,14 @@
     <Compile Include="View\SubForm\WeekListControl.xaml.cs">
       <DependentUpon>WeekListControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ThisWeekList.xaml.cs">
+      <DependentUpon>ThisWeekList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TodayList.xaml.cs">
       <DependentUpon>TodayList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ThisWeekList.xaml.cs">
-      <DependentUpon>ThisWeekList.xaml</DependentUpon>
+    <Compile Include="View\ThisWeekList_.xaml.cs">
+      <DependentUpon>ThisWeekList_.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -144,11 +147,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ThisWeekList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\TodayList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ThisWeekList.xaml">
+    <Page Include="View\ThisWeekList_.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

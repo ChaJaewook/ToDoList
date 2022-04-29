@@ -58,7 +58,7 @@ namespace ToDoList.View
 
         private void NavigateWeekendList(object sender, RoutedEventArgs e)
         {
-            this.mainFrame.Navigate(new Uri("View/WeekList.xaml", UriKind.RelativeOrAbsolute));
+            this.mainFrame.Navigate(new Uri("View/ThisWeekList.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void NavigateCalendarList(object sender, RoutedEventArgs e)

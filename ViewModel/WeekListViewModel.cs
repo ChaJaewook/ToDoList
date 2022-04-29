@@ -7,13 +7,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using ToDoList.Util;
+using ToDoList.View.SubForm;
+
 namespace ToDoList.ViewModel
 {
     public class WeekListViewModel:NotifyChanged
     {
         #region 변수
         AcsDBManager _manager;
-        DataSet _result;
+        
         string _query = string.Empty;
         #endregion
         #region Binding 변수정리
@@ -28,8 +30,8 @@ namespace ToDoList.ViewModel
             }
         }
 
-        private ObservableCollection<TextBlock> weekCheckList = new ObservableCollection<TextBlock>();
-        public ObservableCollection<TextBlock> WeekCheckList
+        private ObservableCollection<ItemsControl> weekCheckList = new ObservableCollection<ItemsControl>();
+        public ObservableCollection<ItemsControl> WeekCheckList
         {
             get
             {
@@ -47,26 +49,43 @@ namespace ToDoList.ViewModel
         #endregion
         public WeekListViewModel()
         {
-            _manager = new AcsDBManager();
+            //_manager = new AcsDBManager();
             
         }
 
-        public void Load()
+        public WeekListViewModel(string p_serachDate)
         {
-            _result = new DataSet();
+            _manager = new AcsDBManager();
+            Load(p_serachDate);
+        }
+
+        public void Load(string p_searchDate)
+        {
+            ItemsControl item = new ItemsControl();
+            DataSet result = new DataSet();
+            string searchDate = p_searchDate;
             _manager.OpenDB();
-            string startDate = DateTime.Today.AddDays(Convert.ToInt32(DayOfWeek.Monday) - Convert.ToInt32(DateTime.Today.DayOfWeek)).ToString("yyyy-MM-dd");
-            string endDate= DateTime.Today.AddDays(Convert.ToInt32(DayOfWeek.Sunday) - Convert.ToInt32(DateTime.Today.DayOfWeek)).ToString("yyyy-MM-dd");
+            
+            //string startDate = DateTime.Today.AddDays(Convert.ToInt32(DayOfWeek.Monday) - Convert.ToInt32(DateTime.Today.DayOfWeek)).ToString("yyyy-MM-dd");
+            //string endDate= DateTime.Today.AddDays(Convert.ToInt32(DayOfWeek.Sunday) - Convert.ToInt32(DateTime.Today.DayOfWeek)).ToString("yyyy-MM-dd");
 
-            _query = string.Format("select * from ListTable BETWEEN '{0}' and '{1} orderby DoDate_'", startDate, endDate);
-            _result = _manager.Select(_query);
-            /*for(int i=0;i<7;i++)
+            _query = string.Format("select * from ListTable where DoDate_='{0}'", searchDate);
+            result = _manager.Select(_query);
+
+            WeekDate = searchDate;
+            
+            if (result.Tables.Count > 0)
             {
-                string searchDate = startDate.AddDays(i).ToString("yyyy-MM-dd");
-                _query=string.Format("select * from where")
-
-
-            }*/
+                DataTable dataTable = result.Tables[0];
+                foreach(DataRow row in dataTable.Rows)
+                {
+                    TextBlock text = new TextBlock();
+                    text.Text = row["Content_"].ToString();
+                    item.Items.Add(text);
+                }
+            }
+            WeekCheckList.Clear();
+            WeekCheckList.Add(item);
             _manager.CloseDB();
         }
     }

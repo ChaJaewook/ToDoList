@@ -160,9 +160,8 @@ namespace ToDoList.ViewModel
 
         private void CheckCommandExecute()
         {
-            if (checker.IsNullOrEmpty(Title)||
-                checker.IsNullOrEmpty(DoDate.ToString("yyyy-MM-dd"))||
-                checker.IsNullOrEmpty(uuid))
+            if (string.IsNullOrEmpty(Title)||
+                string.IsNullOrEmpty(DoDate.ToString("yyyy-MM-dd")))
             {
                 MessageBox.Show("필수값 누락");
             }
