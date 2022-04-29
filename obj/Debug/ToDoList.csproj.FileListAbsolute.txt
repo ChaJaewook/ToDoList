@@ -15,12 +15,13 @@ C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\ToDoList.pdb
 C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\CalendarList.g.cs
 C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\SubForm\CheckListControl.g.cs
 C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\TodayList.g.cs
-C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\WeekendList.g.cs
 C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\CalendarList.baml
 C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\SubForm\CheckListControl.baml
 C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\TodayList.baml
-C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\WeekendList.baml
 C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\SubForm\InfoWindow.g.cs
 C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\SubForm\InfoWindow.baml
-C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\ToDoList.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\SubForm\WeekListControl.g.cs
+C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\SubForm\WeekListControl.baml
+C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\ThisWeekList.g.cs
+C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\ThisWeekList.baml

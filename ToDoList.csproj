@@ -69,6 +69,7 @@
     <Compile Include="ViewModel\InfoViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\NotifyChanged\NotifyChanged.cs" />
+    <Compile Include="ViewModel\ThisWeekListViewModel.cs" />
     <Compile Include="ViewModel\TodayListViewModel.cs" />
     <Compile Include="ViewModel\WeekListViewModel.cs" />
     <Compile Include="View\CalendarList.xaml.cs">
@@ -89,8 +90,8 @@
     <Compile Include="View\TodayList.xaml.cs">
       <DependentUpon>TodayList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Weekend.xaml.cs">
-      <DependentUpon>Weekend.xaml</DependentUpon>
+    <Compile Include="View\ThisWeekList.xaml.cs">
+      <DependentUpon>ThisWeekList.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -147,7 +148,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Weekend.xaml">
+    <Page Include="View\ThisWeekList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
