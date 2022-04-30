@@ -11,23 +11,26 @@
     <UserControl.DataContext>
         <local:CheckListViewModel/>
     </UserControl.DataContext>
-    
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="{Binding WeekDate}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <ItemsControl Grid.Row="1" ItemsSource="{Binding WeekCheckList}" Margin="20,10,20,10">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel>
+    <Border BorderBrush="CadetBlue" BorderThickness="1">
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
 
-                    </StackPanel>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
+            <TextBlock Grid.Row="0" Text="{Binding WeekDate}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <ItemsControl Grid.Row="1" ItemsSource="{Binding WeekCheckList}" Margin="20,10,20,10">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel>
 
-        </ItemsControl>
-    </Grid>
+                        </StackPanel>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+            </ItemsControl>
+        </Grid>
+    </Border>
+
 </UserControl>

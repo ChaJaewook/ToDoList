@@ -20,7 +20,7 @@
         <Grid Grid.Row="0">
             <Label Content="이번주 할 일" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
-        <ScrollViewer Grid.Row="1">
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" Grid.Row="1">
             <ItemsControl   HorizontalAlignment="Left" ItemsSource="{Binding ThisWeekList}" Margin="20,10,20,10">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>

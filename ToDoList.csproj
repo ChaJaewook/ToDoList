@@ -84,6 +84,9 @@
     <Compile Include="View\SubForm\InfoWindow.xaml.cs">
       <DependentUpon>InfoWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\SubForm\WeekCheckListControl.xaml.cs">
+      <DependentUpon>WeekCheckListControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\SubForm\WeekListControl.xaml.cs">
       <DependentUpon>WeekListControl.xaml</DependentUpon>
     </Compile>
@@ -140,6 +143,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SubForm\InfoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SubForm\WeekCheckListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
