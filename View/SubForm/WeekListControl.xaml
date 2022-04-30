@@ -6,14 +6,14 @@
              
              xmlns:local="clr-namespace:ToDoList.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="240"
+             Height="450" Width="200"
              Background="White">
     <UserControl.DataContext>
         <local:CheckListViewModel/>
     </UserControl.DataContext>
 
     <Border BorderBrush="CadetBlue" BorderThickness="1">
-        <Grid Margin="5">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="1*"/>

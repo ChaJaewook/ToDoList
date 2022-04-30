@@ -79,12 +79,16 @@ namespace ToDoList.ViewModel
                 DataTable dataTable = result.Tables[0];
                 foreach(DataRow row in dataTable.Rows)
                 {
-                    CheckBox chekBox = new CheckBox();
+                    /*CheckBox chekBox = new CheckBox();
                     TextBox text = new TextBox();
                     
                     text.IsReadOnly = true;
-                    text.Text = row["Content_"].ToString();
-                    item.Items.Add(text);
+                    text.Text = row["Content_"].ToString();*/
+
+                    WeekCheckListControl weekListControl = new WeekCheckListControl();
+                    weekListControl.DataContext = new WeekCheckListViewModel(row["Content_"].ToString(), row["ID_"].ToString());
+                    
+                    item.Items.Add(weekListControl);
 
                     
                 }

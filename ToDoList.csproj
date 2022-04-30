@@ -71,6 +71,7 @@
     <Compile Include="ViewModel\NotifyChanged\NotifyChanged.cs" />
     <Compile Include="ViewModel\ThisWeekListViewModel.cs" />
     <Compile Include="ViewModel\TodayListViewModel.cs" />
+    <Compile Include="ViewModel\WeekCheckListViewModel.cs" />
     <Compile Include="ViewModel\WeekListViewModel.cs" />
     <Compile Include="View\CalendarList.xaml.cs">
       <DependentUpon>CalendarList.xaml</DependentUpon>
