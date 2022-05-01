@@ -61,6 +61,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Model\WeekCheckListModel.cs" />
     <Compile Include="Util\AcsDBManager.cs" />
     <Compile Include="Util\Checker.cs" />
     <Compile Include="Util\UUID.cs" />
@@ -127,9 +128,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Page Include="View\CalendarList.xaml">
       <SubType>Designer</SubType>

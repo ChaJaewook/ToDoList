@@ -18,6 +18,7 @@ namespace ToDoList.ViewModel
             {
                 checkBox = value;
                 OnPropertyChanged("CheckBox");
+                CheckBoxState();
             }
         }
 
@@ -31,6 +32,17 @@ namespace ToDoList.ViewModel
                 OnPropertyChanged("Content");
             }
         }
+
+        private string uuid;
+        public string UUID
+        {
+            get { return uuid; }
+            set
+            {
+                uuid = UUID;
+                OnPropertyChanged("UUID");
+            }
+        }
         #endregion
         public WeekCheckListViewModel()
         {
@@ -40,6 +52,12 @@ namespace ToDoList.ViewModel
         public WeekCheckListViewModel(string p_content, string p_uuid)
         {
             Content = p_content;
+            UUID = p_uuid;
+
+        }
+
+        public void CheckBoxState()
+        {
 
         }
     }
