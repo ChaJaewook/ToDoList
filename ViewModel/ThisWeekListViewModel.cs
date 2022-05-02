@@ -5,8 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Input;
+using ToDoList.Model;
 using ToDoList.Util;
 using ToDoList.View.SubForm;
+using ToDoList.ViewModel.Command;
 
 namespace ToDoList.ViewModel
 {
@@ -28,6 +31,30 @@ namespace ToDoList.ViewModel
             }
         }
         #endregion
+        #region Command 변수정리
+        public ICommand completeCommand;
+        public ICommand CompleteCommand
+        {
+            get
+            {
+                return (this.completeCommand) ?? (this.completeCommand = new DelegateCommand(CompleteCommandExecute));
+            }
+        }
+
+
+
+        public ICommand deleteCommand;
+        public ICommand DeleteCommand
+        {
+            get
+            {
+                return (this.deleteCommand) ?? (this.deleteCommand = new DelegateCommand(DeleteCommandExecute));
+            }
+        }
+
+
+        #endregion
+
         public ThisWeekListViewModel()
         {
             
@@ -48,10 +75,23 @@ namespace ToDoList.ViewModel
 
                 item.Items.Add(listControl);
                 ThisWeekList.Add(item);
-            }
-
-            
-            
+            }         
         }
+
+        private void DeleteCommandExecute()
+        {
+            //throw new NotImplementedException();
+            foreach (string s in WeekCheckListModel.uuidList)
+            {
+                Console.WriteLine(s);
+            }
+        }
+
+        private void CompleteCommandExecute()
+        {
+            throw new NotImplementedException();
+        }
+
+
     }
 }

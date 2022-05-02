@@ -6,15 +6,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Input;
 using ToDoList.Util;
 using ToDoList.View.SubForm;
-
+using ToDoList.ViewModel.Command;
+using ToDoList.Model;
 namespace ToDoList.ViewModel
 {
     public class WeekListViewModel:NotifyChanged
     {
         #region 변수
+        
         AcsDBManager _manager;
+        
         
         string _query = string.Empty;
         #endregion
@@ -47,6 +51,8 @@ namespace ToDoList.ViewModel
 
 
         #endregion
+
+
         public WeekListViewModel()
         {
             //_manager = new AcsDBManager();
@@ -97,5 +103,9 @@ namespace ToDoList.ViewModel
             WeekCheckList.Add(item);
             _manager.CloseDB();
         }
+
+
+
+
     }
 }

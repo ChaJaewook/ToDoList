@@ -8,10 +8,12 @@ namespace ToDoList.Model
 {
     public class WeekCheckListModel
     {
-        static List<string> uuidList;
+        public static List<string> uuidList=new List<string>();
         public WeekCheckListModel()
         {
-            uuidList.Clear();
+            //uuidList = new List<string>();
+            if(uuidList.Count>0)
+                uuidList.Clear();
         }
 
         public void checkUUID(string p_uuid)
@@ -22,6 +24,11 @@ namespace ToDoList.Model
         public void uncheckUUID(string p_uuid)
         {
             uuidList.Remove(p_uuid);
+        }
+
+        public List<string> GetUUIList()
+        {
+            return uuidList;
         }
         
 

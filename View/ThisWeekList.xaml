@@ -33,7 +33,11 @@
             </ItemsControl>
         </ScrollViewer>
         <Grid Grid.Row="2">
-            
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Button Content="완료" Command="{Binding CompleteCommand}"/>
+                <Button Margin="10,0,0,0" Content="삭제" Command="{Binding DeleteCommand}"/>
+            </StackPanel>
+
         </Grid>
     </Grid>
 </Page>
