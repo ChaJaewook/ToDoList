@@ -62,42 +62,74 @@ namespace ToDoList.ViewModel
 
             _manager.OpenDB();
 
-            DateTime startDate = DateTime.Today.AddDays(Convert.ToInt32(DayOfWeek.Monday) - Convert.ToInt32(DateTime.Today.DayOfWeek)); ;
-
+            Load();
             //item = null;
-            ThisWeekList.Clear();
+       
+        }
+
+        private void DeleteCommandExecute()
+        {
+
+            try
+            {
+                foreach (string uuid in WeekCheckListModel.uuidList)
+                {
+                    _query = string.Format("DELETE * FROM ListTable WHERE ID_='{0}'", uuid);
+                    _manager.Query(_query);
+
+                    Load();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                _manager.CloseDB();
+            }
+        }
+
+        private void CompleteCommandExecute()
+        {
+            try
+            {
+                foreach (string uuid in WeekCheckListModel.uuidList)
+                {
+                    _query = string.Format("UPDATE ListTable SET Check_='1' WEHRE ID_='{0}'", uuid);
+                    _manager.Query(_query);
+                }
+
+                Load();
+            }
+            catch(Exception ex)
+            {
+
+            }
+            finally
+            {
+                _manager.CloseDB();
+            }   
+        }
+
+        private void Load()
+        {
+
+            DateTime startDate = DateTime.Today.AddDays(Convert.ToInt32(DayOfWeek.Monday) - Convert.ToInt32(DateTime.Today.DayOfWeek));
+
+            if (ThisWeekList != null)
+                ThisWeekList.Clear();
+
             for (int i = 0; i < 7; i++)
             {
                 ItemsControl item = new ItemsControl();
                 string searchDate = startDate.AddDays(i).ToString("yyyy-MM-dd");
                 WeekListControl listControl = new WeekListControl();
                 listControl.DataContext = new WeekListViewModel(searchDate);
-
+                listControl.Margin = new System.Windows.Thickness { Left = 10, Right = 10 };
                 item.Items.Add(listControl);
                 ThisWeekList.Add(item);
-            }         
-        }
-
-        private void DeleteCommandExecute()
-        {
-            //throw new NotImplementedException();
-            foreach (string uuid in WeekCheckListModel.uuidList)
-            {
-                _query = string.Format("DELETE * FROM ListTable WHERE ID_='{0}'", uuid);
-                _manager.Query(_query);
             }
-
-            _manager.CloseDB();
-        }
-
-        private void CompleteCommandExecute()
-        {
-            foreach (string uuid in WeekCheckListModel.uuidList)
-            {
-                _query = string.Format("UPDATE ListTable SET Check_='1' WEHRE ID_='{0}'", uuid);
-                _manager.Query(_query);
-            }
-            _manager.CloseDB();
         }
 
 

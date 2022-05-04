@@ -41,22 +41,27 @@ namespace ToDoList.ViewModel
 
         public TodayListViewModel()
         {
-            
+
+            manager.OpenDB();
+            Load();
+
+        }
+
+        private void Load()
+        {
+
             result = new DataSet();
             ItemsControl item = new ItemsControl();
 
-            manager.OpenDB();
+            _query = string.Format("select * from ListTable where DoDate_='{0}'", DateTime.Now.ToString("yyyy-MM-dd"));
 
-            _query = string.Format("select * from ListTable where DoDate_='{0}'",DateTime.Now.ToString("yyyy-MM-dd"));
-
-            result=manager.Select(_query);
-            if(result.Tables.Count>0)
+            result = manager.Select(_query);
+            if (result.Tables.Count > 0)
             {
                 DataTable dataTable = result.Tables[0];
                 foreach (DataRow row in dataTable.Rows)
                 {
 
-                    //CheckListViewModel checkListViewModel = new CheckListViewModel(row["Title"].ToString(), row["DoDate"].ToString(), row["Check"].ToString());
                     CheckListControl chkListControl = new CheckListControl();
                     chkListControl.DataContext = new CheckListViewModel(row["Title_"].ToString(), row["DoDate_"].ToString(), row["Check_"].ToString(), row["ID_"].ToString());
                     chkListControl.Margin = new System.Windows.Thickness { Top = 10, Bottom = 10 };
@@ -65,8 +70,8 @@ namespace ToDoList.ViewModel
                     item.Items.Add(chkListControl);
                 }
             }
-
-            CheckList.Clear();
+            if(checkList.Count>1)
+                CheckList.Clear();
             CheckList.Add(item);
         }
     }
