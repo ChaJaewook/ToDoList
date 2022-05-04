@@ -56,7 +56,7 @@ namespace ToDoList.Util
         {
             try
             {
-                if (p_query.Contains("insert") || p_query.Contains("delete") || p_query.Contains("update"))
+                if (p_query.ToLower().Contains("insert") || p_query.ToLower().Contains("delete") || p_query.ToLower().Contains("update"))
                 {
                     string query = p_query;
                     OleDbCommand cmd = new OleDbCommand(query, _olc);

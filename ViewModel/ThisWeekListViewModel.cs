@@ -81,15 +81,23 @@ namespace ToDoList.ViewModel
         private void DeleteCommandExecute()
         {
             //throw new NotImplementedException();
-            foreach (string s in WeekCheckListModel.uuidList)
+            foreach (string uuid in WeekCheckListModel.uuidList)
             {
-                Console.WriteLine(s);
+                _query = string.Format("DELETE * FROM ListTable WHERE ID_='{0}'", uuid);
+                _manager.Query(_query);
             }
+
+            _manager.CloseDB();
         }
 
         private void CompleteCommandExecute()
         {
-            throw new NotImplementedException();
+            foreach (string uuid in WeekCheckListModel.uuidList)
+            {
+                _query = string.Format("UPDATE ListTable SET Check_='1' WEHRE ID_='{0}'", uuid);
+                _manager.Query(_query);
+            }
+            _manager.CloseDB();
         }
 
 
