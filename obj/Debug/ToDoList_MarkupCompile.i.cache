@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\User\source\repos\ToDoList\ToDoList\App.xaml
-10-867095054
+11-1499658173
 
-27-2016789499
+28-869045614
 151397803362
-View\CalendarList.xaml;View\MainWindow.xaml;View\SubForm\1Dictionary.xaml;View\SubForm\CheckListControl.xaml;View\SubForm\InfoWindow.xaml;View\SubForm\WeekCheckListControl.xaml;View\SubForm\WeekListControl.xaml;View\ThisWeekList.xaml;View\TodayList.xaml;View\ThisWeekList_.xaml;
+View\CalendarList.xaml;View\MainWindow.xaml;View\ResourceDictionary.xaml;View\SubForm\CalendarControl.xaml;View\SubForm\CheckListControl.xaml;View\SubForm\InfoWindow.xaml;View\SubForm\WeekCheckListControl.xaml;View\SubForm\WeekListControl.xaml;View\ThisWeekList.xaml;View\TodayList.xaml;View\ThisWeekList_.xaml;
 
 True
 

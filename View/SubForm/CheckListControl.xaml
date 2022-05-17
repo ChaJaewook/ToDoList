@@ -8,7 +8,11 @@
              d:DesignHeight="50" d:DesignWidth="800">
 
     <UserControl.Resources>
-        <ResourceDictionary Source="../1Dictionary.xaml"/>
+        <ResourceDictionary >
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/View/ResourceDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </UserControl.Resources>
     
     <UserControl.DataContext>
@@ -29,9 +33,9 @@
         <TextBlock Margin="20,0,0,0" VerticalAlignment="Center" Grid.Column="0" TextDecorations="{Binding CheckListDeco}" Foreground="{Binding CheckListForeground}" Text="{Binding CheckListTitle}"/>
 
 
-        <Button Grid.Column="1" Content="완료" Command="{Binding SubmitCommand}"/>
-        <Button Grid.Column="2" Content="수정" Command="{Binding ModCheckListCommand}"/>
-        <Button Grid.Column="3" Content="삭제" Command="{Binding DelCheckListCommand}"/>
+        <Button Margin="3,0,3,0" Style="{StaticResource CheckButtonStyle}"  Grid.Column="1" Content="완료" Command="{Binding SubmitCommand}"/>
+        <Button Margin="3,0,3,0" Style="{StaticResource ModifyButtonStyle}" Grid.Column="2" Content="수정" Command="{Binding ModCheckListCommand}"/>
+        <Button Margin="3,0,3,0" Style="{StaticResource DeleteButtonStyle}" Grid.Column="3" Content="삭제" Command="{Binding DelCheckListCommand}"/>
         <TextBlock Grid.Column="4" Text="{Binding UUID}" Visibility="Collapsed"/>
 
     </Grid>
