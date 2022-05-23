@@ -45,6 +45,9 @@ namespace ToDoList.ViewModel
             manager.OpenDB();
             Load();
 
+
+            
+
         }
 
         private void Load()
