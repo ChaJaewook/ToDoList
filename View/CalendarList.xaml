@@ -9,9 +9,9 @@
       Title="CalendarList"
       >
 
-    <!--<Page.DataContext>
+    <Page.DataContext>
         <local:CalendarListViewModel/>
-    </Page.DataContext>-->
+    </Page.DataContext>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -19,11 +19,23 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Hello" Grid.Row="0"/>
-        <UniformGrid Grid.Row="1" Columns="7" Rows="5">
-            <Button Content="1"/>
-            <Button Content="2"/>
-        </UniformGrid>
+        <TextBlock Text="Hello" FontSize="20" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Grid Grid.Row="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <StackPanel HorizontalAlignment="Center" Grid.Row="0" Orientation="Horizontal">
+                <Button Content="◀" Command="{Binding PrevMonthButton}"/>
+                <TextBlock Text="{Binding CalendarYear}"/>
+                <TextBlock Text="{Binding CalendarMonth}"/>
+                <Button Content="▶" Command="{Binding NextMonthButton}"/>
+            </StackPanel>
+            <UniformGrid Grid.Row="1" Columns="7" Rows="5">
+                
+            </UniformGrid>
+
+        </Grid>
 
 
 
