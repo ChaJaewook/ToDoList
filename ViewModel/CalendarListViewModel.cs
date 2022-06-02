@@ -35,12 +35,69 @@ namespace ToDoList.ViewModel
 
         private void NextMonthButtonExecute()
         {
+            int monthAdder = 0;
+            int yearAdder = 0;
+            if(int.TryParse(CalendarMonth,out monthAdder))
+            {
+                monthAdder = int.Parse(CalendarMonth);
+            }
             
+            if(int.TryParse(CalendarYear,out yearAdder))
+            {
+                yearAdder = int.Parse(CalendarYear);
+            }
+
+            monthAdder++;
+
+            if(monthAdder>12)
+            {
+                yearAdder++;
+                monthAdder = 1;
+            }
+            if(monthAdder>1&&monthAdder<10)
+            {
+                CalendarMonth = monthAdder.ToString("00");
+            }
+            else
+            {
+                CalendarMonth = monthAdder.ToString();
+            }
+            
+            CalendarYear = yearAdder.ToString();
+
         }
 
         private void PrevMonthButtonExecute()
         {
-            
+            int monthAdder = 0;
+            int yearAdder = 0;
+            if (int.TryParse(CalendarMonth, out monthAdder))
+            {
+                monthAdder = int.Parse(CalendarMonth);
+            }
+
+            if (int.TryParse(CalendarYear, out yearAdder))
+            {
+                yearAdder = int.Parse(CalendarYear);
+            }
+
+            monthAdder--;
+
+            if (monthAdder < 1)
+            {
+                yearAdder--;
+                monthAdder = 12;
+            }
+
+            if (monthAdder > 1 && monthAdder < 10)
+            {
+                CalendarMonth = monthAdder.ToString("00");
+            }
+            else
+            {
+                CalendarMonth = monthAdder.ToString();
+            }
+            CalendarYear = yearAdder.ToString();
         }
 
         #endregion

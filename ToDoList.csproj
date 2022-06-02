@@ -65,6 +65,7 @@
     <Compile Include="Util\AcsDBManager.cs" />
     <Compile Include="Util\Checker.cs" />
     <Compile Include="Util\UUID.cs" />
+    <Compile Include="ViewModel\CalendarDateViewModel.cs" />
     <Compile Include="ViewModel\CalendarListViewModel.cs" />
     <Compile Include="ViewModel\CheckListViewModel.cs" />
     <Compile Include="ViewModel\Command\DelegateCommand.cs" />
@@ -81,8 +82,8 @@
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SubForm\CalendarControl.xaml.cs">
-      <DependentUpon>CalendarControl.xaml</DependentUpon>
+    <Compile Include="View\SubForm\CalendarDateControl.xaml.cs">
+      <DependentUpon>CalendarDateControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SubForm\CheckListControl.xaml.cs">
       <DependentUpon>CheckListControl.xaml</DependentUpon>
@@ -146,7 +147,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\SubForm\CalendarControl.xaml">
+    <Page Include="View\SubForm\CalendarDateControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

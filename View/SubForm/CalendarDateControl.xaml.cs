@@ -18,9 +18,9 @@ namespace ToDoList.View.SubForm
     /// <summary>
     /// CalendarControl.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class CalendarControl : UserControl
+    public partial class CalendarDateControl : UserControl
     {
-        public CalendarControl()
+        public CalendarDateControl()
         {
             InitializeComponent();
         }
