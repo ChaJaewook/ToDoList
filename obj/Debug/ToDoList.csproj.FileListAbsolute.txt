@@ -32,3 +32,4 @@ C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\SubForm\WeekCheckLis
 C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\ResourceDictionary.baml
 C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\SubForm\CalendarDateControl.g.cs
 C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\View\SubForm\CalendarDateControl.baml
+C:\Users\User\source\repos\ToDoList\ToDoList\obj\Debug\ToDoList.csproj.AssemblyReference.cache

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -14,8 +15,18 @@ namespace ToDoList.ViewModel
         string _query = string.Empty;
         DataSet _result = null;
 
+
+        public ObservableCollection<CalendarControlData>  ToDoList{ get; set; }
+
+        public class CalendarControlData
+        {
+            public string UUID;
+            public string ToDoData;
+
+        }
         #region Binding 변수정의
-        private string todoData;
+
+        /*private string todoData;
         public string ToDoData
         {
             get
@@ -41,7 +52,7 @@ namespace ToDoList.ViewModel
                 uuid = value;
                 OnPropertyChanged("UUID");
             }
-        }
+        }*/
 
         private string date;
         public string Date
@@ -65,7 +76,6 @@ namespace ToDoList.ViewModel
         public CalendarDateViewModel(string p_year, string p_month, string p_day)
         {
             manager.OpenDB();
-
             _query = string.Format("select * from ListTable where DoDate_ like '{0}%'",p_year+"-"+p_month+"-"+p_day);
             
             try
@@ -73,7 +83,12 @@ namespace ToDoList.ViewModel
                 _result = manager.Select(_query);
                 DataTable dataTable = _result.Tables[0];
 
+                Date = p_day;
 
+                foreach(DataRow row in dataTable.Rows)
+                {
+                    ToDoList.Add(new CalendarControlData { ToDoData = row["Content_"].ToString(), UUID = row["ID_"].ToString() });
+                }
             }
             catch(Exception ex)
             {
