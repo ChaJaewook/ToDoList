@@ -9,21 +9,29 @@ using ToDoList.Util;
 
 namespace ToDoList.ViewModel
 {
+
+
+
+
     public class CalendarDateViewModel:NotifyChanged
     {
+
+        public ObservableCollection<CalendarControlData> ToDoList { get; set; }
+
+        public class CalendarControlData
+        {
+            public string UUID { get; set; }
+            public string ToDoData { get; set; }
+
+        }
+
+
         AcsDBManager manager = new AcsDBManager();
         string _query = string.Empty;
         DataSet _result = null;
 
 
-        public ObservableCollection<CalendarControlData>  ToDoList{ get; set; }
 
-        public class CalendarControlData
-        {
-            public string UUID;
-            public string ToDoData;
-
-        }
         #region Binding 변수정의
 
         /*private string todoData;
