@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
+using ToDoList.View.SubForm;
 using ToDoList.ViewModel.Command;
 
 namespace ToDoList.ViewModel
@@ -103,14 +104,14 @@ namespace ToDoList.ViewModel
         #endregion
 
         #region Binding 변수정의
-        public ObservableCollection<ItemsControl> calendarList = new ObservableCollection<ItemsControl>();
-        public ObservableCollection<ItemsControl> CalendarList
+        public ObservableCollection<ItemsControl> calendarToDoList = new ObservableCollection<ItemsControl>();
+        public ObservableCollection<ItemsControl> CalendarToDoList
         {
-            get { return calendarList; }
+            get { return calendarToDoList; }
             set
             {
-                calendarList = value;
-                OnPropertyChanged("ThisWeekList");
+                calendarToDoList = value;
+                OnPropertyChanged("CalendarToDoList");
             }
         }
 
@@ -155,6 +156,31 @@ namespace ToDoList.ViewModel
         {
             CalendarYear = DateTime.Now.ToString("yyyy");
             CalendarMonth = DateTime.Now.ToString("MM");
+
+            if(CalendarToDoList!=null)
+            {
+                CalendarToDoList.Clear();
+            }
+
+            int lastDay = DateTime.DaysInMonth(Int32.Parse(DateTime.Now.ToString("yyyy")), Int32.Parse(DateTime.Now.ToString("MM")));
+
+            /*for(int week=0;week<6;week++)
+            {
+                for (int day = 0; day < 7; day++)
+                {
+
+                }
+            }*/
+
+            for(int day=1;day<=lastDay;day++)
+            {
+                ItemsControl item = new ItemsControl();
+                CalendarDateControl calendarControl = new CalendarDateControl();
+                calendarControl.DataContext = new CalendarDateViewModel(DateTime.Now.ToString("yyyy"), DateTime.Now.ToString("MM"),day.ToString("D2"));
+                item.Items.Add(calendarControl);
+                calendarToDoList.Add(item);
+            }
+
         }
 
 

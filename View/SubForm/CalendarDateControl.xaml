@@ -16,7 +16,7 @@
             <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
         <TextBlock HorizontalAlignment="Center" Grid.Row="0" Text="{Binding Date}"/>
-        <ListBox Grid.Row="1" >
+        <ListBox Grid.Row="1" ItemsSource="{Binding ToDoList}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>

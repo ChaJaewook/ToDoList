@@ -76,7 +76,8 @@ namespace ToDoList.ViewModel
         public CalendarDateViewModel(string p_year, string p_month, string p_day)
         {
             manager.OpenDB();
-            _query = string.Format("select * from ListTable where DoDate_ like '{0}%'",p_year+"-"+p_month+"-"+p_day);
+            ToDoList = new ObservableCollection<CalendarControlData>();
+            _query = string.Format("select * from ListTable where DoDate_ like '{0}'",p_year+"-"+p_month+"-"+p_day);
             
             try
             {

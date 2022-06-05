@@ -31,9 +31,15 @@
                 <TextBlock Text="{Binding CalendarMonth}"/>
                 <Button Content="▶" Command="{Binding NextMonthButton}"/>
             </StackPanel>
-            <UniformGrid Grid.Row="1" Columns="7" Rows="5">
-                
-            </UniformGrid>
+            
+            <ItemsControl Grid.Row="1" ItemsSource="{Binding CalendarToDoList}" Margin="20,10,20,10">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid  Columns="7" Rows="5"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+             </ItemsControl>
+
 
         </Grid>
 
