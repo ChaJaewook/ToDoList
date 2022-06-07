@@ -16,7 +16,19 @@ namespace ToDoList.ViewModel
     public class CalendarDateViewModel:NotifyChanged
     {
 
-        public ObservableCollection<CalendarControlData> ToDoList { get; set; }
+        public ObservableCollection<CalendarControlData> toDoList = new ObservableCollection<CalendarControlData>();
+        //public ObservableCollection<CalendarControlData> ToDoList { get; set; }
+
+        public ObservableCollection<CalendarControlData> ToDoList
+        {
+            get { return toDoList; }
+            set
+            {
+                toDoList = value;
+                OnPropertyChanged("ToDoList");
+            }
+        }
+            
 
         public class CalendarControlData
         {
@@ -83,23 +95,32 @@ namespace ToDoList.ViewModel
         }
         public CalendarDateViewModel(string p_year, string p_month, string p_day)
         {
+            Load(p_year, p_month, p_day);
+        }
+
+        public void Load(string year, string month, string day)
+        {
+
             manager.OpenDB();
-            ToDoList = new ObservableCollection<CalendarControlData>();
-            _query = string.Format("select * from ListTable where DoDate_ like '{0}'",p_year+"-"+p_month+"-"+p_day);
-            
+
+            //ToDoList = new ObservableCollection<CalendarControlData>();
+            if (ToDoList != null)
+                ToDoList.Clear();
+            _query = string.Format("select * from ListTable where DoDate_ like '{0}'", year + "-" + month + "-" + day);
+
             try
             {
                 _result = manager.Select(_query);
                 DataTable dataTable = _result.Tables[0];
 
-                Date = p_day;
+                Date = day;
 
-                foreach(DataRow row in dataTable.Rows)
+                foreach (DataRow row in dataTable.Rows)
                 {
                     ToDoList.Add(new CalendarControlData { ToDoData = row["Content_"].ToString(), UUID = row["ID_"].ToString() });
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
@@ -107,9 +128,7 @@ namespace ToDoList.ViewModel
             {
                 manager.CloseDB();
             }
-
-
-
         }
+
     }
 }

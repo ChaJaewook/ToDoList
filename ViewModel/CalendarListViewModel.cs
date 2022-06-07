@@ -66,6 +66,8 @@ namespace ToDoList.ViewModel
             
             CalendarYear = yearAdder.ToString();
 
+            Load(CalendarYear, calendarMonth);
+
         }
 
         private void PrevMonthButtonExecute()
@@ -99,6 +101,7 @@ namespace ToDoList.ViewModel
                 CalendarMonth = monthAdder.ToString();
             }
             CalendarYear = yearAdder.ToString();
+            Load(CalendarYear, calendarMonth);
         }
 
         #endregion
@@ -148,31 +151,24 @@ namespace ToDoList.ViewModel
 
         public CalendarListViewModel()
         {
-
-            Load();
-        }
-
-        public void Load()
-        {
             CalendarYear = DateTime.Now.ToString("yyyy");
             CalendarMonth = DateTime.Now.ToString("MM");
 
+            Load(CalendarYear, CalendarMonth);
+        }
+
+        public void Load(string year, string month)
+        {
+            
             if(CalendarToDoList!=null)
             {
                 CalendarToDoList.Clear();
             }
 
-            int lastDay = DateTime.DaysInMonth(Int32.Parse(DateTime.Now.ToString("yyyy")), Int32.Parse(DateTime.Now.ToString("MM")));
+            int lastDay = DateTime.DaysInMonth(Int32.Parse(year), Int32.Parse(month));
 
-            /*for(int week=0;week<6;week++)
-            {
-                for (int day = 0; day < 7; day++)
-                {
 
-                }
-            }*/
-
-            for(int day=1;day<=lastDay;day++)
+            for (int day=1;day<=lastDay;day++)
             {
                 ItemsControl item = new ItemsControl();
                 CalendarDateControl calendarControl = new CalendarDateControl();
