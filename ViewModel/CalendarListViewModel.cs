@@ -172,7 +172,7 @@ namespace ToDoList.ViewModel
             {
                 ItemsControl item = new ItemsControl();
                 CalendarDateControl calendarControl = new CalendarDateControl();
-                calendarControl.DataContext = new CalendarDateViewModel(DateTime.Now.ToString("yyyy"), DateTime.Now.ToString("MM"),day.ToString("D2"));
+                calendarControl.DataContext = new CalendarDateViewModel(CalendarYear, CalendarMonth,day.ToString("D2"));
                 item.Items.Add(calendarControl);
                 calendarToDoList.Add(item);
             }
