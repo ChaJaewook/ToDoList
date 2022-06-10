@@ -64,6 +64,7 @@
     <Compile Include="Model\WeekCheckListModel.cs" />
     <Compile Include="Util\AcsDBManager.cs" />
     <Compile Include="Util\Checker.cs" />
+    <Compile Include="Util\Date.cs" />
     <Compile Include="Util\UUID.cs" />
     <Compile Include="ViewModel\CalendarDateViewModel.cs" />
     <Compile Include="ViewModel\CalendarListViewModel.cs" />

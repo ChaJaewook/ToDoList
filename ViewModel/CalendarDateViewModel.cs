@@ -101,23 +101,33 @@ namespace ToDoList.ViewModel
         public void Load(string year, string month, string day)
         {
 
-            manager.OpenDB();
+
 
             //ToDoList = new ObservableCollection<CalendarControlData>();
-            if (ToDoList != null)
-                ToDoList.Clear();
+
             _query = string.Format("select * from ListTable where DoDate_ like '{0}'", year + "-" + month + "-" + day);
 
             try
             {
-                _result = manager.Select(_query);
-                DataTable dataTable = _result.Tables[0];
+                if (ToDoList != null)
+                    ToDoList.Clear();
 
-                Date = day;
-
-                foreach (DataRow row in dataTable.Rows)
+                manager.OpenDB();
+                if (year.Equals("") & month.Equals("") && day.Equals(""))
                 {
-                    ToDoList.Add(new CalendarControlData { ToDoData = row["Content_"].ToString(), UUID = row["ID_"].ToString() });
+                    Date = "";
+                }
+                else
+                {
+                    _result = manager.Select(_query);
+                    DataTable dataTable = _result.Tables[0];
+
+                    Date = day;
+
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        ToDoList.Add(new CalendarControlData { ToDoData = row["Content_"].ToString(), UUID = row["ID_"].ToString() });
+                    }
                 }
             }
             catch (Exception ex)

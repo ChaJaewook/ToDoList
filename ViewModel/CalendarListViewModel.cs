@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using ToDoList.View.SubForm;
 using ToDoList.ViewModel.Command;
+using ToDoList.Util;
 
 namespace ToDoList.ViewModel
 {
@@ -149,10 +150,14 @@ namespace ToDoList.ViewModel
         }
         #endregion
 
+        Date dateUtil;
+
         public CalendarListViewModel()
         {
             CalendarYear = DateTime.Now.ToString("yyyy");
             CalendarMonth = DateTime.Now.ToString("MM");
+
+            dateUtil = new Date();
 
             Load(CalendarYear, CalendarMonth);
         }
@@ -166,6 +171,17 @@ namespace ToDoList.ViewModel
             }
 
             int lastDay = DateTime.DaysInMonth(Int32.Parse(year), Int32.Parse(month));
+            
+            int emptyDay = dateUtil.getDayEmpty(DateTime.Parse(year+" "+month+" "+"01"));
+            for(int k=1;k<=emptyDay;k++)
+            {
+                ItemsControl emptyItem = new ItemsControl();
+                CalendarDateControl emptycalendarControl= new CalendarDateControl();
+                emptycalendarControl.DataContext= new CalendarDateViewModel("", "", "");
+                emptyItem.Items.Add(emptycalendarControl);
+                CalendarToDoList.Add(emptyItem);
+
+            }
 
 
             for (int day=1;day<=lastDay;day++)
