@@ -19,17 +19,22 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Hello" FontSize="20" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock FontFamily="/Resources/#이사만루체 Bold" Text="달력으로 보기!" FontSize="20" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Grid Grid.Row="1" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <StackPanel HorizontalAlignment="Center" Grid.Row="0" Orientation="Horizontal">
-                <Button Content="◀" Command="{Binding PrevMonthButton}"/>
-                <TextBlock Text="{Binding CalendarYear}"/>
-                <TextBlock Text="{Binding CalendarMonth}"/>
-                <Button Content="▶" Command="{Binding NextMonthButton}"/>
+                <Button BorderBrush="Transparent" Background="Transparent"  Command="{Binding PrevMonthButton}">
+                    <Image Source="/Resources/LeftArrow.png"/>
+                </Button>
+                <TextBlock FontFamily="/Resources/#이사만루체 Light" VerticalAlignment="Center" Text="{Binding CalendarYear}"/>
+                <TextBlock FontFamily="/Resources/#이사만루체 Light" VerticalAlignment="Center" Text="{Binding CalendarMonth}"/>
+                <Button BorderBrush="Transparent" Background="Transparent" Command="{Binding NextMonthButton}">
+                    <Image Source="/Resources/RightArrow.png"/>
+                </Button>
+
             </StackPanel>
             
             <ItemsControl Grid.Row="1" ItemsSource="{Binding CalendarToDoList}" Margin="20,10,20,10">
