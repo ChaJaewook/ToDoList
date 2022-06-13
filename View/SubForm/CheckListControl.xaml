@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ToDoList.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="50" d:DesignWidth="800">
+             d:DesignHeight="70" d:DesignWidth="800">
 
     <UserControl.Resources>
         <ResourceDictionary >
@@ -14,29 +14,33 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-    
+
     <UserControl.DataContext>
         <local:CheckListViewModel/>
     </UserControl.DataContext>
-    
 
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="0"/>
-        </Grid.ColumnDefinitions>
 
-        <TextBlock Margin="20,0,0,0" VerticalAlignment="Center" Grid.Column="0" TextDecorations="{Binding CheckListDeco}" Foreground="{Binding CheckListForeground}" Text="{Binding CheckListTitle}"/>
+    <Border BorderBrush="DeepSkyBlue" CornerRadius="5" BorderThickness="3">
+        <Grid Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60*"/>
+                <ColumnDefinition Width="257*"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="0"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Margin="20,19" VerticalAlignment="Center" Grid.Column="0" TextDecorations="{Binding CheckListDeco}" Foreground="{Binding CheckListForeground}" Text="{Binding CheckListTitle}" Grid.ColumnSpan="2"/>
 
 
-        <Button Margin="3,0,3,0" Style="{StaticResource CheckButtonStyle}"  Grid.Column="1" Content="완료" Command="{Binding SubmitCommand}"/>
-        <Button Margin="3,0,3,0" Style="{StaticResource ModifyButtonStyle}" Grid.Column="2" Content="수정" Command="{Binding ModCheckListCommand}"/>
-        <Button Margin="3,0,3,0" Style="{StaticResource DeleteButtonStyle}" Grid.Column="3" Content="삭제" Command="{Binding DelCheckListCommand}"/>
-        <TextBlock Grid.Column="4" Text="{Binding UUID}" Visibility="Collapsed"/>
+            <Button Margin="3,18" Style="{StaticResource CheckButtonStyle}"  Grid.Column="2" Content="완료" Command="{Binding SubmitCommand}"/>
+            <Button Margin="3,18" Style="{StaticResource ModifyButtonStyle}" Grid.Column="3" Content="수정" Command="{Binding ModCheckListCommand}"/>
+            <Button Margin="3,18" Style="{StaticResource DeleteButtonStyle}" Grid.Column="4" Content="삭제" Command="{Binding DelCheckListCommand}"/>
+            <TextBlock Grid.Column="5" Text="{Binding UUID}" Visibility="Collapsed"/>
 
-    </Grid>
+        </Grid>
+    </Border>
+
 </UserControl>

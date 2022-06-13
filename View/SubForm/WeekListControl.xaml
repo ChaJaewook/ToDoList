@@ -19,7 +19,7 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0" Text="{Binding WeekDate}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock FontFamily="/Resources/#이사만루체 Light" FontWeight="Bold" Grid.Row="0" Text="{Binding WeekDate}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <ItemsControl Grid.Row="1" ItemsSource="{Binding WeekCheckList}" Margin="20,10,20,10">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>

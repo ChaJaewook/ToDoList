@@ -70,5 +70,13 @@ namespace ToDoList.View
         {
             this.DragMove();
         }
+
+        private void TitleBarIcon_Click(object sender, MouseButtonEventArgs e)
+        {
+            if(e.ClickCount==2)
+            {
+                this.Close();
+            }
+        }
     }
 }
