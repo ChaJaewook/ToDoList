@@ -7,6 +7,15 @@
       d:DesignHeight="450" d:DesignWidth="800"
       xmlns:local="clr-namespace:ToDoList.ViewModel"
       Title="ThisWeekList">
+
+    <Page.Resources>
+        <ResourceDictionary >
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/View/ResourceDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    
     <Page.DataContext>
         <local:ThisWeekListViewModel/>
     </Page.DataContext>
@@ -18,7 +27,7 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <Label FontFamily="/Resources/#이사만루체 Bold" FontSize="20" Content="이번주 할 일" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Style="{DynamicResource ResourceKey=TitleTextBlockStyle}" Text="이번주 할 일" />
         </Grid>
         <ScrollViewer HorizontalScrollBarVisibility="Auto" Grid.Row="1">
             <ItemsControl   HorizontalAlignment="Center" ItemsSource="{Binding ThisWeekList}" Margin="20,10,20,10">

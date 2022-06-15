@@ -24,21 +24,20 @@
     <Border BorderBrush="DeepSkyBlue" CornerRadius="5" BorderThickness="3">
         <Grid Margin="5">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="60*"/>
-                <ColumnDefinition Width="257*"/>
-                <ColumnDefinition Width="50"/>
-                <ColumnDefinition Width="50"/>
-                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
                 <ColumnDefinition Width="0"/>
             </Grid.ColumnDefinitions>
 
             <TextBlock Margin="20,19" VerticalAlignment="Center" Grid.Column="0" TextDecorations="{Binding CheckListDeco}" Foreground="{Binding CheckListForeground}" Text="{Binding CheckListTitle}" Grid.ColumnSpan="2"/>
 
 
-            <Button Margin="3,18" Style="{StaticResource CheckButtonStyle}"  Grid.Column="2" Content="완료" Command="{Binding SubmitCommand}"/>
-            <Button Margin="3,18" Style="{StaticResource ModifyButtonStyle}" Grid.Column="3" Content="수정" Command="{Binding ModCheckListCommand}"/>
-            <Button Margin="3,18" Style="{StaticResource DeleteButtonStyle}" Grid.Column="4" Content="삭제" Command="{Binding DelCheckListCommand}"/>
-            <TextBlock Grid.Column="5" Text="{Binding UUID}" Visibility="Collapsed"/>
+            <Button FontFamily="/Resources/#이사만루체 Light" Margin="3" FontSize="15" Padding="5"  Style="{StaticResource CheckButtonStyle}"  Grid.Column="1" Content="완 료" Command="{Binding SubmitCommand}"/>
+            <Button FontFamily="/Resources/#이사만루체 Light" Margin="3" FontSize="15" Padding="5"  Style="{StaticResource ModifyButtonStyle}" Grid.Column="2" Content="수 정" Command="{Binding ModCheckListCommand}"/>
+            <Button FontFamily="/Resources/#이사만루체 Light" Margin="3" FontSize="15" Padding="5"  Style="{StaticResource DeleteButtonStyle}" Grid.Column="3" Content="삭 제" Command="{Binding DelCheckListCommand}"/>
+            <TextBlock Grid.Column="5"  Text="{Binding UUID}" Visibility="Collapsed"/>
 
         </Grid>
     </Border>
