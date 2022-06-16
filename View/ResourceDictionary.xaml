@@ -82,4 +82,22 @@
 
     </Style>
 
+    <Style TargetType="RadioButton" x:Key="TodayRadioButton">
+        <Setter Property="Content" Value="오늘 할 일!"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RadioButton}">
+                    <Border x:Name="border"  BorderThickness="0" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                        <ContentPresenter x:Name="contentPresenter"  Content="{TemplateBinding Content}"  Focusable="False" HorizontalAlignment="Center"  RecognizesAccessKey="True" SnapsToDevicePixels="True" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background" Value="#FF197BDC"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>
